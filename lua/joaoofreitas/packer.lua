@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
-   -- DAP for debugging 
+   -- DAP for debugging _(needs some care)_
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "folke/neodev.nvim"} }
 
     -- Linter and formatter
@@ -40,6 +40,11 @@ return require('packer').startup(function(use)
         {'L3MON4D3/LuaSnip'},     -- Required
       }
     }
+
+    -- Toggleterm
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+      require("toggleterm").setup({direction = "float"})
+    end}
 
     -- Bottom Line and Icons
     use 'feline-nvim/feline.nvim'

@@ -18,3 +18,7 @@ vim.keymap.set("n", "<leader>bs", vim.cmd.w)
 vim.keymap.set("n", "<leader>bn", vim.cmd.bnext)
 vim.keymap.set("n", "<leader>bp", vim.cmd.bprev)
 
+-- Esc in Terminal Mode
+vim.keymap.set("t", "<Esc>","<C-\\><C-n>")
+vim.keymap.set("n", "<leader>t", vim.cmd.ToggleTerm )
+
