@@ -19,4 +19,6 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
 
     use 'sainnhe/gruvbox-material'
+    use { "catppuccin/nvim", as = "catppuccin" }
+
 end)
