@@ -1,0 +1,10 @@
+-- Personal settings
+vim.api.nvim_command('syntax on')
+vim.api.nvim_command('set cursorline')
+vim.api.nvim_command('set hidden')
+vim.api.nvim_command('set number relativenumber')
+vim.api.nvim_command('set inccommand=split')
+vim.api.nvim_command('set mouse=a')
+vim.api.nvim_command('set clipboard+=unnamedplus')
+vim.api.nvim_command('set shiftwidth=4')
+vim.api.nvim_command('set termguicolors')
