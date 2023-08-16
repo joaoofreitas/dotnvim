@@ -1,6 +1,28 @@
 #!/usr/bin/bash
 
-git clone git@github.com:joaoofreitas/dotnvim.git nvim
+echo "Make sure you have unzip, curl, neovim and ripgrep installed"
+echo "============================================================="
 
+
+echo "Cloning the repository with config name"
+git clone git@github.com:joaoofreitas/dotnvim.git ~/.config/nvim
+
+echo "Installing Packer for Package Management"
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+echo "Installing Nerd Fonts"
+
+mkdir -p temp
+cd temp
+wget https://github.com/joaoofreitas/dotnvim/releases/download/v1.0.0/nerd.zip
+unzip nerd.zip
+
+mkdir -p ~/.local/share/fonts
+cp *.ttf ~/.local/share/fonts
+
+cd ..
+rm -rf temp
+
+
+echo "READY! Run 'nvim' and :PackerInstall + :PackerSync"
