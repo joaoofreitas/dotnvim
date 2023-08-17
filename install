@@ -34,11 +34,11 @@ else
     exit 1
 fi
 
-echo -e "${YELLOW}Preparing for elite hacks..."
+echo -e "${YELLOW}Setting everything up"
 echo "============================"
 echo
 
-echo "Installing necessary tools: unzip, curl, neovim, and ripgrep"
+echo "Installing necessary tools: unzip, curl and ripgrep"
 echo "---------------------------------------------------------"
 if [ "$PM" = "pacman" ]; then
     sudo "$PM" -S --noconfirm unzip curl neovim ripgrep
@@ -72,6 +72,6 @@ cd ..
 rm -rf temp
 
 echo
-echo -e "${GREEN}READY! Channel your inner hacker by executing 'nvim' and invoking :PackerSync${NC}"
+echo -e "${GREEN}READY! Get to work by executing 'nvim' and invoking :PackerSync${NC}"
 echo -e "${BLUE}==============================================================================================${NC}"
 
