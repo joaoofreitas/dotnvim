@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+# Print prompt
+echo "                                 d8b             " 
+echo "                                Y8P              "
+echo "                                                 "
+echo "88888b.  .d88b.  .d88b. 888  88888888888b.d88b.  "
+echo "888 \"88bd8P  Y8bd88\"\"88b888  888888888 \"888 \"88b "
+echo "888  88888888888888  888Y88  88P888888  888  888 		-- @joaoofreitas"
+echo "888  888Y8b.    Y88..88P Y8bd8P 888888  888  888 "
+echo "888  888 \"Y8888  \"Y88P\"   Y88P  888888  888  888 "        
+                                                 
+
+# Detect the package manager
+if command -v apt-get &>/dev/null; then
+    PM='apt-get'
+elif command -v dnf &>/dev/null; then
+    PM='dnf'
+elif command -v yum &>/dev/null; then
+    PM='yum'
+elif command -v pacman &>/dev/null; then
+    PM='pacman'
+else
+    echo "Unsupported package manager. Please install 'unzip', 'curl', 'neovim', and 'ripgrep' manually."
+    exit 1
+fi
+
+echo "Preparing for elite hacks..."
+echo "============================"
+echo
+
+echo "Installing necessary tools: unzip, curl, neovim, and ripgrep"
+echo "---------------------------------------------------------"
+if [ "$PM" = "pacman" ]; then
+    sudo "$PM" -S --noconfirm unzip curl neovim ripgrep
+else
+    sudo "$PM" install -y unzip curl neovim ripgrep
+fi
+
+echo
+echo "Cloning the repository with a secret config name"
+echo "-----------------------------------------------"
+git clone git@github.com:joaoofreitas/dotnvim.git ~/.config/nvim
+
+echo
+echo "Injecting Packer into the system for ultimate package management"
+echo "-------------------------------------------------------------"
+git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+echo
+echo "Initiating the extraction of Nerd Fonts for maximum awesomeness"
+echo "-------------------------------------------------------------"
+mkdir -p temp
+cd temp
+wget https://github.com/joaoofreitas/dotnvim/releases/download/v1.0.0/nerd.zip
+unzip nerd.zip
+
+mkdir -p ~/.local/share/fonts
+cp *.ttf ~/.local/share/fonts
+
+cd ..
+rm -rf temp
+
+echo
+echo "READY! Channel your inner hacker by executing 'nvim' and invoking :PackerSync"
+echo "=============================================================================================="
+
