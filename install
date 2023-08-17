@@ -34,6 +34,49 @@ else
     exit 1
 fi
 
+
+# Prompt user for default Alacritty setup
+read -p "Do you want to use the default Alacritty setup? (y/n): " use_default
+
+if [[ "$use_default" =~ ^[Yy]$ ]]; then
+    # Use default setup
+    echo "Using default Alacritty setup"
+     
+    # Create alacritty.yml content
+    ALACRITTY_CONTENT=$(cat <<EOF
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+
+font:
+  normal:
+    family: JetbrainsMonoNerdFont
+    style: Regular
+  bold:
+    family: JetbrainsMonoNerdFont
+    style: Bold
+  italic:
+    family: JetbrainsMonoNerdFont
+    style: Italic
+  bold_italic:
+    family: JetbrainsMonoNerdFont
+    style: Bold Italic
+  size: 12.0
+
+shell:
+  program: /bin/bash
+EOF
+    )
+    
+    # Create folder
+    mkdir -p ~/.config/alacritty
+    # Save content to alacritty.yml
+    echo "$ALACRITTY_CONTENT" > ~/.config/alacritty/alacritty.yml
+    git clone https://github.com/catppuccin/alacritty.git ~/.config/alacritty/catppuccin
+    echo -e "${GREEN}Alacritty configuration saved to ~/.config/alacritty.yml${NC}"
+else
+    echo "Custom setup not implemented in this script. Exiting."
+fi
+
 echo -e "${YELLOW}Setting everything up"
 echo "============================"
 echo
