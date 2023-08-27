@@ -3,4 +3,8 @@ require("neodev").setup({
   ...
 })
 
+require("mason-nvim-dap").setup({
+    automatic_setup = true,
+})
+
 require("dapui").setup()
