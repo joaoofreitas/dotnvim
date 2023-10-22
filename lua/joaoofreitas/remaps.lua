@@ -22,3 +22,6 @@ vim.keymap.set("n", "<leader>bp", vim.cmd.bprev)
 vim.keymap.set("t", "<Esc>","<C-\\><C-n>")
 vim.keymap.set("n", "<leader>t", vim.cmd.ToggleTerm )
 
+
+-- Run require("dapui").toggle() 
+vim.api.nvim_set_keymap('n', '<leader>dw', '<cmd>lua require("dapui").toggle()<CR>', {noremap = true, silent = true})

@@ -17,7 +17,7 @@ return require('packer').startup(function(use)
     }
 
    -- DAP for debugging _(needs some care)_
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "folke/neodev.nvim"} }
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use "jay-babu/mason-nvim-dap.nvim"
 
     -- Linter and formatter
@@ -41,6 +41,9 @@ return require('packer').startup(function(use)
         {'L3MON4D3/LuaSnip'},     -- Required
       }
     }
+
+    -- Copilot
+    use "github/copilot.vim"
 
     -- Toggleterm
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
