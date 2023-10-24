@@ -25,3 +25,5 @@ vim.keymap.set("n", "<leader>t", vim.cmd.ToggleTerm )
 
 -- Run require("dapui").toggle() 
 vim.api.nvim_set_keymap('n', '<leader>dw', '<cmd>lua require("dapui").toggle()<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>dt', vim.cmd.DapToggleBreakpoint)
+vim.keymap.set('n', '<leader>dc', vim.cmd.DapContinue)

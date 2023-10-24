@@ -2,7 +2,7 @@ local dap = require('dap')
 
   dap.adapters.lldb = {
     type = 'executable',
-    command = '/bedrock/cross/bin/lldb-vscode-14',
+    command = '/usr/bin/lldb-vscode-14',
     name = "lldb"
   }
   dap.configurations.cpp = {
