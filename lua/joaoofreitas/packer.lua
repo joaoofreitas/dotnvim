@@ -17,8 +17,8 @@ return require('packer').startup(function(use)
     }
 
    -- DAP for debugging _(needs some care)_
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-    use "jay-babu/mason-nvim-dap.nvim"
+   -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+   -- use "jay-babu/mason-nvim-dap.nvim"
 
     -- Linter and formatter
     use {
