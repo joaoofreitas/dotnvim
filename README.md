@@ -2,6 +2,10 @@
 
 #### Installation
 
+```
+Warning: The package manager was archived and the package manager should be changed soon.
+```
+
 - Copy the following script
 
 ```bash
